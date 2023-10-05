@@ -13,27 +13,27 @@ def display_menu():
     print("3) List products")
     print("0) Display this menu")
 
+def create_product():
+    '''
+    '''
+    product_name = input('Enter a product name...\t')
+    product_price = input('Enter a product price...\t')
+    new_product = Product(name = product_name, price = product_price)
+    products.add_product(product=new_product)
 
 
 if __name__ == "__main__":
 
-    print("hello")
     products = Products("dev")
-    #p1 = Product('pc', quantity=0)
-    #p1.display_information()
-    #c1 = Customer("Bob")
-    #c1.buy(p1)
-    #p1.display_information()
+    customer1 = Customer(name = "Toto")
 
+    display_menu()
     while (True):
-        display_menu()
         input_user = input("Your choice...\t")
         print(f"input_user = {input_user}")
         if (input_user == '1'):
             print("You are going to create a new product: ")
-            new_product = Product('pc', quantity=5)
-            products.add_product(product=new_product)
-            
+            create_product()
         elif (input_user == '2'):
             print("You are going to buy a product")
         elif (input_user == '3'):
@@ -44,3 +44,4 @@ if __name__ == "__main__":
             break
         else:
             print("You didn't enter a correct choice. Try again")
+            display_menu()

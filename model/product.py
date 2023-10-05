@@ -1,14 +1,10 @@
 class Product:
-    def __init__(self, name, price=50, quantity=10):
+    def __init__(self, name, price=50):
         self.name = name
         self.price = price
-        self.quantity = quantity
 
-        
-
-    def display_information(self):
-        print(f"name = {self.name} - price = {self.price} - quantity = {self.quantity}")
-
+    def __str__(self):
+        return f"Product info \nname : {self.name} - price : {self.price}"
 
 
 class Products:
@@ -18,25 +14,24 @@ class Products:
     
     def add_product(self, product):
         self.items.append(product)
-        print(f"Product {product.name} created !")
+        print(f"Product {product} created !")
 
     def list_products(self):
-        print(f"{len(self.items)}")
-        # for item in self.items:
-        #     print(item.display_information())
+        # print(f"{len(self.items)}")
+        for item in self.items:
+            print(item)
 
 class Customer:
 
     def __init__(self, name):
         self.name = name
 
+    def __str__(self):
+        return f"Customer : {self.name}"
 
     def buy(self, product):
         print('Buying a product...')
-        if (product.quantity == 0):
-            print(f"The stock for the product {product.name} is sold out!Come back later")
-        else:
-            print(f"Thanks for buying {product.name}. See you soon!")
-            product.quantity = product.quantity - 1
+        print('Select the product you want to buy :')
+
 
     
